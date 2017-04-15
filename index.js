@@ -12,6 +12,7 @@ if (!databaseUri) {
 }
 
 var dashboard = new ParseDashboard({
+  "allowInsecureHTTP" : true,
   "apps": [
     {
       "serverURL": "https://localhost:1337/parse",

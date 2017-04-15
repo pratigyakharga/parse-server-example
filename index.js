@@ -45,4 +45,4 @@ app.get('/', function(req, res) {
 });
 
 var httpServer = require('http').createServer(app);
-httpServer.listen(port);
+httpServer.listen(4040);

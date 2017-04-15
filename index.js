@@ -15,7 +15,7 @@ var dashboard = new ParseDashboard({
   "allowInsecureHTTP" : true,
   "apps": [
     {
-      "serverURL": "https://localhost:1337/parse",
+      "serverURL": "/parse",
       "appId": process.env.APP_ID || "myAppId",
       "masterKey": process.env.MASTER_KEY || "myMasterKey",
       "appName": "MyApp"

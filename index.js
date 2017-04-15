@@ -20,6 +20,12 @@ var dashboard = new ParseDashboard({
       "masterKey": process.env.MASTER_KEY || "myMasterKey",
       "appName": "MyApp"
     }
+  ],
+  "users": [
+    {
+      "user":"ghimire",
+      "pass":"admin123"
+    }
   ]
 }, true);
 

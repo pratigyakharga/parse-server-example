@@ -40,12 +40,9 @@ var mountPath = process.env.PARSE_MOUNT || '/parse';
 app.use(mountPath, api);
 app.use('/dashboard', dashboard);
 
-// Parse Server plays nicely with the rest of your web routes
 app.get('/', function(req, res) {
   res.status(200).send('I dream of being a web site.');
 });
 
-var port = process.env.PORT || 1337;
-app.listen(port, function() {
-    console.log('parse-server-example running on port ' + port + '.');
-});
+var httpServer = require('http').createServer(app);
+httpServer.listen(port);

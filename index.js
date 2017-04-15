@@ -21,7 +21,7 @@ var dashboard = new ParseDashboard({
       "appName": "MyApp"
     }
   ]
-});
+}, true);
 
 var api = new ParseServer({
   serverURL: "https://your-app-name.herokuapp.com/parse",

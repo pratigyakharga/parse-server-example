@@ -3,12 +3,24 @@
 
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
+var ParseDashboard = require('parse-dashboard');
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI;
 
 if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
 }
+
+var dashboard = new ParseDashboard({
+  "apps": [
+    {
+      "serverURL": "https://localhost:1337/parse",
+      "appId": process.env.APP_ID || "myAppId",
+      "masterKey": process.env.MASTER_KEY || "myMasterKey",
+      "appName": "MyApp"
+    }
+  ]
+});
 
 var api = new ParseServer({
   serverURL: "https://your-app-name.herokuapp.com/parse",
@@ -26,6 +38,7 @@ var app = express();
 // Serve the Parse API on the /parse URL prefix
 var mountPath = process.env.PARSE_MOUNT || '/parse';
 app.use(mountPath, api);
+app.use('/dashboard', dashboard);
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function(req, res) {

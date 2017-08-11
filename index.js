@@ -30,7 +30,7 @@ var dashboard = new ParseDashboard({
 }, true);
 
 var api = new ParseServer({
-  serverURL: "https://your-app-name.herokuapp.com/parse",
+  serverURL: process.env.SERVER_URL || "https://your-app-name.herokuapp.com/parse",
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'myAppId',

@@ -23,7 +23,7 @@ var dashboard = new ParseDashboard({
   ],
   "users": [
     {
-      "user":"ghimire",
+      "user":"bansi",
       "pass":"admin123"
     }
   ]

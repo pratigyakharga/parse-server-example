@@ -29,7 +29,23 @@ var dashboard = new ParseDashboard({
   ]
 }, true);
 
+
+var androidPushConfig = {
+  senderId: process.env.GCM_SENDER_ID || "201620464439",
+  apiKey : process.env.GCM_API_KEY || "AIzaSyD7DLcuA6KSVkYBVakpk_9MOAmKZt8GksA"
+};
+
+var iosPushConfig = {
+  pfx: 'Certificates.p12',
+  passphrase:'admin123',
+  bundleId:'com.ionicframework.mapapp',
+  production: true
+};
+
 var api = new ParseServer({
+  push: {
+    android: androidPushConfig
+  },
   serverURL: process.env.SERVER_URL || "https://your-app-name.herokuapp.com/parse",
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',

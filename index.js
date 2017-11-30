@@ -64,7 +64,7 @@ app.use(mountPath, api);
 app.use('/dashboard', dashboard);
 
 app.get('/', function(req, res) {
-  res.status(200).send('I dream of being a web site.');
+  res.status(200).send('I am CSIT app. :) ');
 });
 
 var port = process.env.PORT || 1337;
